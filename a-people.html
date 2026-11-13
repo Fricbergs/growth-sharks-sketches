@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A. People first</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="base.css">
+<script src="proto.js" defer></script>
+<style>
+/* A. People first. References: Clay, Maze, Dovetail. Real photos replace the diagram. */
+.hero{padding:72px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,6vw,84px);margin:18px 0 24px}
+.hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.3em;overflow:visible}
+.hero p.lead{font-size:20px;line-height:1.5;color:var(--ink-3);max-width:34em}
+
+.paths{display:grid;grid-template-columns:1fr 1fr;margin-top:36px;border-top:1.5px solid var(--ink)}
+.paths a{padding:20px 20px 20px 0;display:block;border-bottom:1px solid var(--line-2)}
+.paths a+a{padding-left:24px;border-left:1px solid var(--line-2)}
+.paths small{display:block;font:700 12px var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.paths b{font:600 21px/1.2 var(--head);letter-spacing:-.02em}
+.paths a:hover b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+
+.pile{position:relative;height:545px}
+.pile figure{position:absolute;background:#fff;padding:10px 10px 0;box-shadow:0 1px 0 var(--line-2),0 18px 40px rgba(15,15,13,.16)}
+.pile img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.pile figcaption{font:500 13px/1 var(--body);color:var(--ink-3);padding:11px 2px 12px}
+.pile .p1{width:66%;left:0;top:6px;transform:rotate(-3deg)}
+.pile .p2{width:52%;right:0;top:120px;transform:rotate(2.5deg);z-index:2}
+.pile .p3{width:45%;left:1%;bottom:0;transform:rotate(-1deg);z-index:3}
+
+.nums{padding:36px 0 28px}
+.nums .row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink)}
+.nums .row>div{padding:22px 28px 22px 0}
+.nums .row>div+div{padding-left:28px;border-left:1px solid var(--line-2)}
+.nums b{display:block;font:600 clamp(44px,5vw,68px)/1 var(--head);letter-spacing:-.04em}
+.nums span{display:block;font-weight:700;margin:8px 0 4px}
+.nums p{font-size:15px;color:var(--ink-3);max-width:30ch}
+.nums .small{display:flex;flex-wrap:wrap;gap:8px 40px;border-top:1px solid var(--line-2);padding-top:16px;font-size:15px;color:var(--ink-3)}
+.nums .small b{display:inline;font:700 17px var(--body);letter-spacing:0;color:var(--ink);margin-right:6px}
+
+.brands{padding:26px 0 70px}
+.brands p{font-size:14px;color:var(--mute);margin-bottom:18px}
+
+.sel{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:84px 0}
+.sel .top{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:36px}
+.sel h2{font-size:clamp(34px,4vw,54px)}
+.sel .top p{color:var(--ink-3)}
+.rows a{display:grid;grid-template-columns:250px 220px 1fr 28px;gap:24px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line-2)}
+.rows a:last-child{border-bottom:1px solid var(--line-2)}
+.rows b{font:600 27px/1.1 var(--head);letter-spacing:-.03em}
+.rows small{font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.rows span{color:var(--ink-3)}
+.rows i{font-style:normal;font-size:22px;transition:transform .15s}
+.rows a:hover{background:var(--paper)}
+.rows a:hover i{transform:translateX(6px);color:var(--red)}
+
+.say{padding:96px 0}
+.say .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
+.say img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px}
+.say blockquote{font:500 clamp(28px,3.2vw,44px)/1.14 var(--head);letter-spacing:-.03em}
+.say .res{display:inline-block;margin:26px 0 18px;padding:8px 12px;background:var(--red);color:#fff;font-weight:700;font-size:15px;border-radius:4px}
+.say cite{display:block;font-style:normal;font-weight:700}
+.say cite span{display:block;font-weight:400;color:var(--mute)}
+
+.who{background:var(--paper-2);padding:84px 0}
+.who .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.who h2{font-size:clamp(34px,4vw,54px);margin-bottom:20px}
+.who p{color:var(--ink-3);max-width:36em}
+.who .strip{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.who .strip img{width:100%;height:100%;object-fit:cover;border-radius:4px;aspect-ratio:4/3}
+.who .strip img:first-child{grid-row:span 2;aspect-ratio:auto}
+
+@media (max-width:900px){
+  .hero .wrap,.sel .top,.say .wrap,.who .wrap{grid-template-columns:1fr;gap:32px}
+  .paths,.nums .row{grid-template-columns:1fr}
+  .paths a+a,.nums .row>div+div{padding-left:0;border-left:0}
+  .nums .row>div{border-bottom:1px solid var(--line-2)}
+  .pile{height:400px}
+  .rows a{grid-template-columns:1fr 24px;gap:4px 12px}
+  .rows small,.rows span{grid-column:1}
+  .rows i{grid-row:1;grid-column:2}
+}
+</style>
+</head>
+<body>
+<header class="hd"><div class="wrap">
+  <img src="assets/img/gs-logo-light.svg" alt="Growth Sharks, the home of technologies">
+  <nav><a href="#">Solutions</a><a href="#">Technologies</a><a href="#">For partners</a><a href="#">Knowledge base</a><a href="#">About us</a></nav>
+  <a class="lang" href="https://www.growth-sharks.com/">NL</a><a class="btn" href="#contact">Book a call</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">eCommerce technology and sales partner in Europe and Latin America</p>
+    <h1>We sniff out the <em>revenue<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13c48-9 92-11 142-8 52 3 98 2 152-3M20 18c70-6 150-7 262-4" fill="none" stroke="#c8001e" stroke-width="4" stroke-linecap="round"/></svg></em> you’re leaving on the table.</h1>
+    <p class="lead">Every online store leaves money on the table. Growth Sharks finds where, and puts in the eCommerce tools proven to win it back. Ruthlessly selected, combined into one stack.</p>
+    <div class="paths">
+      <a href="#stores"><small>I run an online store</small><b>Find the tech that speeds up your growth →</b></a>
+      <a href="https://www.growth-sharks.com/en/#gs-partners"><small>I build eCommerce tech</small><b>Let us sell it in new markets →</b></a>
+    </div>
+  </div>
+  <div class="pile" aria-label="The Growth Sharks team at work">
+    <figure class="p1"><img src="assets/img/reel/2026-salerno-networking.webp" alt=""><figcaption>Salerno, 2026</figcaption></figure>
+    <figure class="p2"><img src="assets/img/reel/2025-wwv.webp" alt=""><figcaption>Webwinkel Vakdagen, 2025</figcaption></figure>
+    <figure class="p3"><img src="assets/img/reel/2024-reskyt-team-building-1.webp" alt=""><figcaption>With the Reskyt team, 2024</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="nums"><div class="wrap">
+  <p class="eyebrow" style="margin-bottom:14px">Growth Sharks in numbers <span class="mute" style="font-weight:500;text-transform:none;letter-spacing:0;margin-left:10px">Since we started in 2023</span></p>
+  <div class="row">
+    <div><b>30,000+</b><span>eCommerce decision-makers</span><p>in our network across Europe and Latin America, more than 10,000 of whom we know personally.</p></div>
+    <div><b>1,100+</b><span>demos since March 2024</span><p>Every demo starts with a discovery call, so we know up front which problem we are solving.</p></div>
+    <div><b>418</b><span>deals in negotiation</span><p>for the technologies we represent, as of October 2026.</p></div>
+  </div>
+  <div class="small">
+    <div><b>35%</b>of demos turn into an opportunity</div>
+    <div><b>&lt; 2%</b>churn among technology partners</div>
+    <div><b>15+</b>countries in Europe and Latin America</div>
+    <div><b>10+ years</b>experience in eCommerce SaaS sales</div>
+  </div>
+</div></section>
+
+<section class="brands"><div class="wrap">
+  <p>eCommerce brands that work with us</p>
+  <div class="logos">
+    <img src="assets/img/logos/petrol.webp" alt="Petrol Industries"><img src="assets/img/logos/medpets.webp" alt="Medpets"><img src="assets/img/logos/deonlinedrogist.webp" alt="DeOnlineDrogist"><img src="assets/img/logos/bbquality.webp" alt="BBQuality"><img src="assets/img/logos/hm.webp" alt="H&amp;M"><img src="assets/img/logos/prenatal.webp" alt="Prenatal"><img src="assets/img/logos/mart-visser.webp" alt="Mart Visser"><img src="assets/img/logos/malelions.webp" alt="Malelions"><img src="assets/img/logos/brekz.webp" alt="Brekz"><img src="assets/img/logos/agradi.webp" alt="Agradi">
+  </div>
+</div></section>
+
+<section class="sel" id="stores"><div class="wrap">
+  <div class="top">
+    <div><p class="eyebrow" style="margin-bottom:14px">For online stores</p><h2>Which eCommerce technology fits your growth goal?</h2></div>
+    <p>A new tool launches every week, and every vendor claims theirs is the best. We know the landscape from hundreds of demos and only recommend what fits your type and size of store. Choose what you want to improve:</p>
+  </div>
+  <div class="chips" data-goals></div>
+  <div class="rows">
+    <a data-tech="reskyt" href="https://www.growth-sharks.com/en/reskyt/"><b>Reskyt</b><small>Shopping app</small><span>Your own iOS and Android app with push notifications: customers come back without ad spend.</span><i>→</i></a>
+    <a data-tech="fozzels" href="https://www.growth-sharks.com/en/fozzels/"><b>Fozzels</b><small>AI product content</small><span>Product copy, attributes and images created automatically, optimised for Google and AI search engines.</span><i>→</i></a>
+    <a data-tech="nextchapter-ecommerce" href="https://www.growth-sharks.com/en/nextchapter-ecommerce/"><b>NextChapter Ecommerce</b><small>Multichannel commerce suite</small><span>Online store, CMS, PIM and OMS in one platform for retailers, brands and enterprises that sell through multiple channels.</span><i>→</i></a>
+    <a data-tech="boostic" href="https://www.growth-sharks.com/en/boostic/"><b>Boostic</b><small>Ad budget per product</small><span>Steers Google Shopping and Meta budget towards the products that actually sell.</span><i>→</i></a>
+    <a data-tech="segmentify" href="https://www.growth-sharks.com/en/segmentify/"><b>Segmentify</b><small>Personalisation and customer engagement</small><span>Recommendations, search and dynamic bundles per visitor, for more conversions and a higher order value.</span><i>→</i></a>
+    <a data-tech="cervito" href="https://www.growth-sharks.com/en/cervito/"><b>Cervito</b><small>AI sales assistant</small><span>Advises visitors day and night in the chat, from your own live catalogue, in 44 languages.</span><i>→</i></a>
+    <a data-tech="vchfy" href="https://www.growth-sharks.com/en/vchfy/"><b>Vchfy</b><small>Branded voucher page</small><span>Brings shoppers who leave checkout to hunt for discount codes back to your own site.</span><i>→</i></a>
+  </div>
+</div></section>
+
+<section class="say"><div class="wrap">
+  <img src="assets/img/reel/2025-wwv-mr-online-drogist.webp" alt="">
+  <div>
+    <p class="eyebrow" style="margin-bottom:18px">Online store · Reskyt</p>
+    <blockquote>“An app notification now often has more impact than an email, which saves us costs in the long run.”</blockquote>
+    <p class="res">39% of total revenue now comes from the app.</p>
+    <cite>Paul van Dinther<span>Founder and owner, BBQuality</span></cite>
+  </div>
+</div></section>
+
+<section class="who"><div class="wrap">
+  <div>
+    <h2>Who is behind Growth Sharks?</h2>
+    <p>Founded in 2023 by Raymond Vonk, Ramón de L’Hotellerie and Francisco Mojarro, with teams working in their own language in the Benelux, DACH, Southern Europe, the Baltic states and Latin America.</p>
+  </div>
+  <div class="strip">
+    <img src="assets/img/reel/2025-scheveningen.webp" alt="">
+    <img src="assets/img/reel/2026-meet-magento.webp" alt="">
+    <img src="assets/img/reel/2025-innovation-diner.webp" alt="">
+  </div>
+</div></section>
+
+<section class="cta" id="contact"><div class="wrap">
+  <h2>One call. No pitch. Just an honest answer.</h2>
+  <div><p>Honest advice, even when the answer is no. If a tool is not right for you now, we say so, and tell you who to call instead.</p><a class="btn" href="https://www.growth-sharks.com/en/#gs-contact">Book a call</a></div>
+</div></section>
+<div class="ft"><div class="wrap">Design sketch, not the official website. Copy and images belong to Growth Sharks. The live site is <a href="https://www.growth-sharks.com/en/" style="text-decoration:underline">growth-sharks.com</a>.</div></div>
+
+<nav class="sw"><a href="index.html">Overview</a><a class="on" href="a-people.html">A People</a><a href="b-mosaic.html">B Mosaic</a><a href="c-editorial.html">C Editorial</a><a href="d-dark.html">D Dark</a></nav>
+</body>
+</html>

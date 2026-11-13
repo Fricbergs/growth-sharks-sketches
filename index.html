@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growth Sharks, four design directions</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="base.css">
+<style>
+main{padding:64px 0 120px}
+h1{font-size:clamp(38px,5vw,64px);margin:14px 0 18px;max-width:18ch}
+.lead{font-size:19px;color:var(--ink-3);max-width:44em}
+.rules{margin:30px 0 44px;padding:20px 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:repeat(3,1fr);gap:28px;font-size:15px;color:var(--ink-3)}
+.rules b{display:block;color:var(--ink);margin-bottom:4px}
+.v{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.v a{display:block;background:#fff;border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.v a:hover{box-shadow:0 14px 34px rgba(15,15,13,.14)}
+.v iframe{width:200%;height:760px;border:0;transform:scale(.5);transform-origin:0 0;pointer-events:none;display:block}
+.v .fr{height:380px;overflow:hidden;border-bottom:1.5px solid var(--ink);background:var(--paper-2)}
+.v .tx{padding:20px 22px 22px}
+.v h2{font-size:28px;margin-bottom:8px}
+.v p{font-size:15px;color:var(--ink-3)}
+.v small{display:block;margin-top:10px;font-size:13px;color:var(--mute)}
+.v small b{color:var(--red)}
+@media (max-width:860px){.v,.rules{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="wrap"><img src="assets/img/gs-logo-light.svg" alt="Growth Sharks"></div></header>
+<main><div class="wrap">
+  <p class="eyebrow">Design sketches, 13 November 2026</p>
+  <h1>Four ways to make the site look like people built it.</h1>
+  <p class="lead">All four show the same top half of the home page: headline, numbers, customers, technology selector, a testimonial, the call to action. Only the look changes.</p>
+  <div class="rules">
+    <div><b>What stays untouched</b>Copy, headings, their order and levels. Everything that keeps the site ranking in Google and AI search.</div>
+    <div><b>What comes from the current site</b>The red and black, Inter Tight and DM Sans, the logo, your own team and event photos.</div>
+    <div><b>What is gone</b>The red glow, the node diagram, the counting numbers. Those are the cues that make a page read as AI-made.</div>
+  </div>
+  <div class="v">
+    <a href="a-people.html"><div class="fr"><iframe src="a-people.html" loading="lazy" tabindex="-1"></iframe></div><div class="tx"><h2>A. People first</h2><p>Light background. Three real photos laid out like prints replace the diagram, one word underlined by hand. Technologies as a list, not cards.</p><small><b>References on Mobbin:</b> Clay, Maze, Dovetail</small></div></a>
+    <a href="b-mosaic.html"><div class="fr"><iframe src="b-mosaic.html" loading="lazy" tabindex="-1"></iframe></div><div class="tx"><h2>B. Proof mosaic</h2><p>A grid right under the headline: customer logos, named quotes, result numbers and photos. Proof before the pitch.</p><small><b>References on Mobbin:</b> Intercom, Jasper, Contractbook</small></div></a>
+    <a href="c-editorial.html"><div class="fr"><iframe src="c-editorial.html" loading="lazy" tabindex="-1"></iframe></div><div class="tx"><h2>C. Editorial</h2><p>White, very large type, hairlines, numbered sections. Photos in black and white, colour returns on hover. Technologies open as a list.</p><small><b>References on Mobbin:</b> Harvey, Ploy</small></div></a>
+    <a href="d-dark.html"><div class="fr"><iframe src="d-dark.html" loading="lazy" tabindex="-1"></iframe></div><div class="tx"><h2>D. Dark, warmer</h2><p>Closest to what is live now. The dark hero stays, a photo wall replaces the diagram, numbers sit in one calm row, quotes sit on photos.</p><small><b>References on Mobbin:</b> Retool, Sana</small></div></a>
+  </div>
+  <p style="margin-top:36px;font-size:13px;color:var(--mute)">Design sketches, not the official website. Copy and images belong to Growth Sharks.</p>
+</div></main>
+</body>
+</html>
