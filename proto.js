@@ -175,8 +175,8 @@
       at = (at + v.length) % v.length;
       var img = v[at].querySelector('img');
       big.src = img.getAttribute('src'); big.alt = img.alt;
-      cap.textContent = img.alt;
-      var n = el('span', '', (at + 1) + ' / ' + v.length); cap.appendChild(n);
+      cap.innerHTML = v[at].querySelector('figcaption').innerHTML;
+      var n = el('i', '', (at + 1) + ' / ' + v.length); cap.appendChild(n);
     }
     function shut() { lb.classList.remove('show'); document.body.style.overflow = ''; if (back) back.focus(); }
     figs.forEach(function (f) {

@@ -73,7 +73,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .wall2 button{display:block;width:100%;padding:0;border:0;background:var(--paper-2);cursor:zoom-in;overflow:hidden}
 .wall2 img{width:100%;height:auto;transition:transform .25s,filter .25s}
 .wall2 button:hover img{transform:scale(1.03)}
-.wall2 figcaption{font:500 12px/1.3 var(--body);color:var(--ink-3);padding:7px 0 2px}
+.wall2 figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 12px;background:linear-gradient(180deg,transparent,rgba(15,15,13,.82));color:#faf9f6;font:600 14px/1.35 var(--body);pointer-events:none}
+.wall2 figcaption span,.lb p span{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;color:#ff8a96;margin-bottom:2px}
+.lb p span{display:inline;margin:0 8px 0 0;font-size:inherit;letter-spacing:0}
 .active{margin-top:40px;padding-top:22px;border-top:1.5px solid currentColor;display:grid;grid-template-columns:170px 1fr auto;gap:28px;align-items:start}
 .active ul{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;font-size:14px;opacity:.85}
 .active li b{display:block;font:600 16px var(--head);margin-bottom:2px;opacity:1}
@@ -82,7 +84,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .lb.show{display:flex}
 .lb img{max-width:100%;max-height:calc(100vh - 150px);width:auto;height:auto}
 .lb p{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:#fff;font:500 15px var(--body)}
-.lb p span{opacity:.6;margin-left:12px}
+.lb p i{font-style:normal;opacity:.6;margin-left:12px}
 .lb button{position:absolute;background:none;border:0;color:#fff;font:400 34px/1 var(--body);cursor:pointer;padding:14px;opacity:.75}
 .lb button:hover{opacity:1}
 .lb .x{right:10px;top:8px}
@@ -142,6 +144,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .tabs{grid-template-columns:1fr 1fr}
   .wall2{column-count:2;column-gap:8px}
   .wall2 figure{margin-bottom:8px}
+  .wall2 figcaption{padding:28px 10px 9px;font-size:13px}
   .active{grid-template-columns:1fr;gap:14px}
   .active ul{grid-template-columns:1fr 1fr}
   .lb{padding:50px 8px}
