@@ -57,6 +57,38 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .dd-list a:hover b{color:var(--red)}
 .burger{display:none;margin-left:auto;background:none;border:0;color:inherit;font:700 14px var(--body);padding:10px 4px;cursor:pointer}
 
+/* Photo proof section: same markup in every variant, each variant restyles it */
+.proof{padding:84px 0;border-top:1px solid var(--line)}
+.proof .top{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:34px}
+.proof h2{font-size:clamp(34px,4vw,54px)}
+.proof .top p{color:var(--ink-3)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:0 20px;margin-bottom:26px}
+.tabs button{position:relative;text-align:left;background:none;border:0;border-top:1.5px solid var(--line-2);padding:16px 34px 16px 0;color:inherit;cursor:pointer;font:400 14px/1.45 var(--body);opacity:.62}
+.tabs button:hover{opacity:1}
+.tabs button.on{opacity:1;border-top:3px solid var(--red);padding-top:14.5px}
+.tabs b{display:block;font:600 19px/1.15 var(--head);letter-spacing:-.02em;margin-bottom:6px}
+.tabs i{position:absolute;right:0;top:16px;font:700 12px var(--body);font-style:normal;color:var(--red)}
+.wall2{column-count:4;column-gap:12px}
+.wall2 figure{break-inside:avoid;margin:0 0 12px;position:relative}
+.wall2 button{display:block;width:100%;padding:0;border:0;background:var(--paper-2);cursor:zoom-in;overflow:hidden}
+.wall2 img{width:100%;height:auto;transition:transform .25s,filter .25s}
+.wall2 button:hover img{transform:scale(1.03)}
+.wall2 figcaption{font:500 12px/1.3 var(--body);color:var(--ink-3);padding:7px 0 2px}
+.active{margin-top:40px;padding-top:22px;border-top:1.5px solid currentColor;display:grid;grid-template-columns:170px 1fr auto;gap:28px;align-items:start}
+.active ul{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;font-size:14px;opacity:.85}
+.active li b{display:block;font:600 16px var(--head);margin-bottom:2px;opacity:1}
+
+.lb{position:fixed;inset:0;z-index:100;background:rgba(15,15,13,.94);display:none;align-items:center;justify-content:center;padding:56px 64px}
+.lb.show{display:flex}
+.lb img{max-width:100%;max-height:calc(100vh - 150px);width:auto;height:auto}
+.lb p{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:#fff;font:500 15px var(--body)}
+.lb p span{opacity:.6;margin-left:12px}
+.lb button{position:absolute;background:none;border:0;color:#fff;font:400 34px/1 var(--body);cursor:pointer;padding:14px;opacity:.75}
+.lb button:hover{opacity:1}
+.lb .x{right:10px;top:8px}
+.lb .pv{left:8px;top:50%;transform:translateY(-50%)}
+.lb .nx{right:8px;top:50%;transform:translateY(-50%)}
+
 /* Goal filter chips, same in every variant */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .chips button{padding:9px 15px;border-radius:99px;border:0;background:transparent;box-shadow:inset 0 0 0 1.5px var(--line-2);font:500 15px var(--body);color:var(--ink);cursor:pointer}
@@ -106,6 +138,13 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .hd .lang{display:none}
   .hd .btn{margin-left:auto}
   .cta .wrap{grid-template-columns:1fr;gap:20px}
+  .proof .top{grid-template-columns:1fr;gap:18px}
+  .tabs{grid-template-columns:1fr 1fr}
+  .wall2{column-count:2;column-gap:8px}
+  .wall2 figure{margin-bottom:8px}
+  .active{grid-template-columns:1fr;gap:14px}
+  .active ul{grid-template-columns:1fr 1fr}
+  .lb{padding:50px 8px}
   .sw{font-size:12px;max-width:calc(100vw - 16px);overflow:auto}
   .sw a{padding:7px 10px}
 }

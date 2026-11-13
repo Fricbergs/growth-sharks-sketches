@@ -148,6 +148,55 @@
     holder.insertAdjacentElement('afterend', note);
   }
 
+  // Photo proof: tabs filter the wall, a click opens the photo large
+  var wall = document.querySelector('.wall2');
+  if (wall) {
+    var figs = Array.prototype.slice.call(wall.querySelectorAll('figure'));
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs button'));
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        var show = t.getAttribute('data-show');
+        tabs.forEach(function (o) { o.classList.toggle('on', o === t); o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); });
+        figs.forEach(function (f) { f.hidden = show !== 'all' && f.getAttribute('data-tag') !== show; });
+      });
+    });
+
+    var lb = el('div', 'lb'); lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Photo');
+    var big = el('img'); var cap = el('p');
+    var x = el('button', 'x', '×'), pv = el('button', 'pv', '‹'), nx = el('button', 'nx', '›');
+    x.type = pv.type = nx.type = 'button';
+    x.setAttribute('aria-label', 'Close'); pv.setAttribute('aria-label', 'Previous photo'); nx.setAttribute('aria-label', 'Next photo');
+    lb.appendChild(big); lb.appendChild(cap); lb.appendChild(x); lb.appendChild(pv); lb.appendChild(nx);
+    document.body.appendChild(lb);
+    var at = 0, back = null;
+    function visible() { return figs.filter(function (f) { return !f.hidden; }); }
+    function paint() {
+      var v = visible(); if (!v.length) return;
+      at = (at + v.length) % v.length;
+      var img = v[at].querySelector('img');
+      big.src = img.getAttribute('src'); big.alt = img.alt;
+      cap.textContent = img.alt;
+      var n = el('span', '', (at + 1) + ' / ' + v.length); cap.appendChild(n);
+    }
+    function shut() { lb.classList.remove('show'); document.body.style.overflow = ''; if (back) back.focus(); }
+    figs.forEach(function (f) {
+      f.querySelector('button').addEventListener('click', function () {
+        back = this; at = visible().indexOf(f); paint();
+        lb.classList.add('show'); document.body.style.overflow = 'hidden'; x.focus();
+      });
+    });
+    x.addEventListener('click', shut);
+    pv.addEventListener('click', function () { at--; paint(); });
+    nx.addEventListener('click', function () { at++; paint(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) shut(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('show')) return;
+      if (e.key === 'Escape') shut();
+      if (e.key === 'ArrowLeft') { at--; paint(); }
+      if (e.key === 'ArrowRight') { at++; paint(); }
+    });
+  }
+
   // Accordion: one row open at a time
   var rows = Array.prototype.slice.call(document.querySelectorAll('details[data-tech]'));
   rows.forEach(function (d) {
